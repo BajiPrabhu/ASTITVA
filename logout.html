@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #F0F8FF; 
+            padding: 20px; 
+            text-align: center; 
+        }
+        .logout-container { 
+            max-width: 400px; 
+            margin: auto; 
+            padding: 20px; 
+            background-color: #22577A; 
+            color: white; 
+            border-radius: 10px; 
+        }
+        .btn { 
+            margin: 10px; 
+            padding: 10px 20px; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 16px; 
+        }
+        .btn-yes { 
+            background-color: #38A3A5; 
+            color: white; 
+        }
+        .btn-no { 
+            background-color: #80ED99; 
+            color: white; 
+        }
+    </style>
+</head>
+<body>
+    <div class="logout-container">
+        <h2>Are you sure you want to log out?</h2>
+        <button class="btn btn-yes" onclick="confirmLogout()">Yes</button>
+        <button class="btn btn-no" onclick="cancelLogout()">No</button>
+    </div>
+
+    <script>
+        function confirmLogout() {
+            alert("You have successfully logged out.");
+            window.location.href = "login.html"; // Redirect to login page
+        }
+
+        function cancelLogout() {
+            window.location.href = "index.html"; // Redirect to home page
+        }
+    </script>
+</body>
+</html>
