@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suggestions - ASTITVA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #B0E0E6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #22577A;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Dropdown Menu */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: #22577A;
+            padding: 10px;
+            z-index: 1;
+            border-radius: 5px;
+            width: 150px;
+        }
+
+        .menu.active + .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #38A3A5;
+        }
+
+        /* Right-aligned links with adjusted left positioning */
+        .navbar .links {
+            display: flex;
+            margin-right: 50px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            margin-left: 35px;
+        }
+
+        .navbar a:first-child {
+            margin-left: 0;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Suggestion Form */
+        .suggestion-form {
+            max-width: 500px;
+            width: 90%;
+            padding: 20px;
+            background-color: #57CC99;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 80px; /* Space for the fixed navbar */
+        }
+
+        .suggestion-form h3 {
+            color: #22577A;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .suggestion-form label,
+        .suggestion-form select,
+        .suggestion-form textarea,
+        .suggestion-form button,
+        .other-category-input {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
+            font-size: 18px;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        .suggestion-form button {
+            background-color: #22577A;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .suggestion-form button:hover {
+            background-color: #38A3A5;
+        }
+
+        .other-category-input {
+            display: none; /* Hidden by default */
+        }
+
+        /* Responsive styling */
+        @media (max-width: 600px) {
+            .navbar .links {
+                gap: 15px;
+            }
+
+            .navbar a {
+                font-size: 14px;
+            }
+
+            .menu {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="menu" onclick="toggleMenu()">☰ Menu</div>
+        <div class="dropdown-content">
+            <a href="news.html">News</a>
+            <a href="receipts.html">Receipts</a>
+            <a href="notifications.html">Notifications</a>
+            <a href="#logout">Log Out</a>
+        </div>
+        <div class="links">
+            <a href="Frontend.html">Home</a>
+            <a href="suggestion.html">Suggestion</a>
+            <a href="#search">Search</a>
+            <a href="profile.html">My Profile</a>
+        </div>
+    </div>
+
+    <!-- Suggestion Form -->
+    <div class="suggestion-form">
+        <h3>ASTITVA Suggestion Form</h3>
+
+        <form action="#" method="POST">
+            <label for="category">Select Category:</label>
+            <select id="category" name="category" onchange="toggleOtherInput()">
+                <option value="water-management">Water Management</option>
+                <option value="waste-management">Waste Management</option>
+                <option value="power-management">Power Management</option>
+                <option value="plantation">Plantation</option>
+                <option value="others">Others</option>
+            </select>
+
+            <!-- Input for Other Category (hidden by default) -->
+            <input type="text" id="other-category" class="other-category-input" placeholder="Specify other category">
+
+            <label for="suggestion">Your Suggestion:</label>
+            <textarea id="suggestion" name="suggestion" rows="4" placeholder="Write your suggestion here..." required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.menu').classList.toggle('active');
+        }
+
+        function toggleOtherInput() {
+            const categorySelect = document.getElementById('category');
+            const otherInput = document.getElementById('other-category');
+            
+            if (categorySelect.value === 'others') {
+                otherInput.style.display = 'block';
+                otherInput.required = true; // Make it required if "Others" is selected
+            } else {
+                otherInput.style.display = 'none';
+                otherInput.required = false; // Not required for other selections
+            }
+        }
+    </script>
+</body>
+</html>
