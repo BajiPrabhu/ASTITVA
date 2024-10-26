@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTITVA - Plantation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3a7ca5; /* Dark shade of light blue */
+            color: white;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #22577A; /* Lapis Lazuli */
+            padding: 15px;
+        }
+
+        .navbar .menu {
+            font-size: 24px; /* Menu button size */
+            color: white;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Problem Section */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 50%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Problem List */
+        .problem-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .problem-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #57CC99; /* Emerald */
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .problem-list li:hover {
+            background-color: #80ED99; /* Light Green */
+        }
+
+        /* Doodle Icons */
+        .problem-list li::before {
+            content: "🌱"; /* Default doodle (change per problem) */
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        /* Problem Text */
+        .problem-list li span {
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="menu">☰ Menu</div> <!-- Menu Button -->
+        <div class="links">
+            <a href="index.html">Home</a> <!-- Changed from #home to index.html -->
+            <a href="suggestion.html">Suggestion</a>
+            <a href="notifications.html">Notifications</a> <!-- Added Notifications link -->
+            <a href="profile.html">My Profile</a>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <h1>Plantation Management Problems</h1>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search for a problem..." onkeyup="searchProblems()">
+        </div>
+
+        <!-- Problem List -->
+        <ul class="problem-list" id="problemList">
+            <li onclick="openProblem('deforestation')"><span>Deforestation Issues</span></li>
+            <li onclick="openProblem('soil-degradation')"><span>Soil Degradation Prevention</span></li>
+            <li onclick="openProblem('urban-greening')"><span>Urban Greening Challenges</span></li>
+            <li onclick="openProblem('forest-management')"><span>Sustainable Forest Management</span></li>
+            <li onclick="openProblem('invasive-species')"><span>Invasive Plant Species Control</span></li>
+            <li onclick="openProblem('reforestation')"><span>Reforestation Strategies</span></li>
+            <li onclick="openProblem('carbon-sequestration')"><span>Carbon Sequestration in Plantations</span></li>
+            <li onclick="openProblem('water-conservation')"><span>Water Conservation for Plantations</span></li>
+            <li onclick="openProblem('agroforestry')"><span>Agroforestry Integration</span></li>
+            <li onclick="openProblem('pest-management')"><span>Pest Management in Plantations</span></li>
+            <li onclick="openProblem('biodiversity')"><span>Enhancing Biodiversity</span></li>
+            <li onclick="openProblem('soil-erosion')"><span>Soil Erosion Control</span></li>
+        </ul>
+    </div>
+
+    <script>
+        // Search function
+        function searchProblems() {
+            var input, filter, ul, li, span, i, txtValue;
+            input = document.getElementById('searchBar');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("problemList");
+            li = ul.getElementsByTagName('li');
+
+            for (i = 0; i < li.length; i++) {
+                span = li[i].getElementsByTagName("span")[0];
+                txtValue = span.textContent || span.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        // Redirect function (mockup for now)
+        function openProblem(problem) {
+            alert("Opening posts related to: " + problem);
+            // You would link this to an actual page with posts related to the problem
+            // window.location.href = problem + ".html";
+        }
+    </script>
+
+</body>
+</html>
