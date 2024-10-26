@@ -109,18 +109,12 @@
             margin-bottom: 20px;
         }
 
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .suggestion-form label {
             width: 100%;
             max-width: 400px;
-        }
-
-        .suggestion-form label {
+            text-align: left;
             font-size: 18px;
-            color: #22577A;
-            margin-bottom: 5px;
+            margin-top: 20px; /* Adjusted margin for spacing */
         }
 
         .suggestion-form select,
@@ -128,17 +122,13 @@
         .suggestion-form button,
         .other-category-input {
             width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
             font-size: 18px;
             padding: 10px;
             border-radius: 5px;
             border: none;
-            margin-top: 10px;
             box-sizing: border-box;
-        }
-
-        /* Adding gap between dropdown and "Your Suggestion" label */
-        .suggestion-form #suggestion-label {
-            margin-top: 20px;
         }
 
         .suggestion-form button {
@@ -154,6 +144,15 @@
 
         .other-category-input {
             display: none; /* Hidden by default */
+        }
+
+        /* Center alignment for select category */
+        .centered-category {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
 
         /* Responsive styling */
@@ -196,7 +195,7 @@
         <h3>ASTITVA Suggestion Form</h3>
 
         <form action="#" method="POST">
-            <div class="form-group">
+            <div class="centered-category">
                 <label for="category">Select Category:</label>
                 <select id="category" name="category" onchange="toggleOtherInput()">
                     <option value="water-management">Water Management</option>
@@ -210,10 +209,8 @@
             <!-- Input for Other Category (hidden by default) -->
             <input type="text" id="other-category" class="other-category-input" placeholder="Specify other category">
 
-            <div class="form-group">
-                <label id="suggestion-label" for="suggestion">Your Suggestion:</label>
-                <textarea id="suggestion" name="suggestion" rows="4" placeholder="Write your suggestion here..." required></textarea>
-            </div>
+            <label for="suggestion">Your Suggestion:</label>
+            <textarea id="suggestion" name="suggestion" rows="4" placeholder="Write your suggestion here..." required></textarea>
 
             <button type="submit">Submit</button>
         </form>
