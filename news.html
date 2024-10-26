@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News - ASTITVA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #B0E0E6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #22577A;
+            padding: 10px;
+            width: 100%;
+            position: relative;
+        }
+
+        .menu {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: #22577A;
+            padding: 10px;
+            z-index: 1;
+            border-radius: 5px;
+            width: 150px;
+        }
+
+        .menu.active + .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #38A3A5;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Content Section */
+        .content {
+            background-color: #57CC99;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            max-width: 800px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .content h2 {
+            color: #22577A;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="menu" onclick="toggleMenu()">☰ Menu</div>
+        <div class="dropdown-content">
+            <a href="news.html">News</a>
+            <a href="receipts.html">Receipts</a>
+            <a href="notifications.html">Notifications</a>
+            <a href="logout.html">Log Out</a>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a> <!-- Changed from Frontend.html to index.html -->
+            <a href="suggestion.html">Suggestion</a>
+            <a href="search.html">Search</a>
+            <a href="profile.html">My Profile</a>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2>Latest News</h2>
+        <p>Here you'll find the latest updates and news related to ASTITVA.</p>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.menu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
