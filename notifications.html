@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications - ASTITVA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #B0E0E6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #22577A;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .menu {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: #22577A;
+            padding: 10px;
+            z-index: 1;
+            border-radius: 5px;
+            width: 150px;
+        }
+
+        .menu.active + .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #38A3A5;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Notifications Section */
+        .notifications-section {
+            max-width: 800px;
+            width: 90%;
+            margin: 20px auto;
+            background-color: #57CC99;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .notifications-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            color: #22577A;
+        }
+
+        .notifications-header h2 {
+            margin: 0;
+        }
+
+        /* Filter & Sort Options */
+        .filter-sort {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .filter-sort select {
+            padding: 5px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        /* Notification Item */
+        .notification-item {
+            background-color: #B0E0E6;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            color: #22577A;
+        }
+
+        .notification-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .notification-content {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="menu" onclick="toggleMenu()">☰ Menu</div>
+        <div class="dropdown-content">
+            <a href="news.html">News</a>
+            <a href="receipts.html">Receipts</a>
+            <a href="notifications.html">Notifications</a>
+            <a href="logout.html">Log Out</a>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a> <!-- Changed from Frontend.html to index.html -->
+            <a href="suggestion.html">Suggestion</a>
+            <input type="text" id="searchBar" placeholder="Search...">
+            <button onclick="searchSite()">Search</button>
+            <a href="profile.html">My Profile</a>
+        </div>
+    </div>
+
+    <!-- Notifications Section -->
+    <div class="notifications-section">
+        <div class="notifications-header">
+            <h2>Notifications</h2>
+            <div class="filter-sort">
+                <label for="filter">Filter:</label>
+                <select id="filter">
+                    <option value="all">All</option>
+                    <option value="date">By Date</option>
+                </select>
+                
+                <label for="sort">Sort:</label>
+                <select id="sort">
+                    <option value="newest">Newest to Oldest</option>
+                    <option value="oldest">Oldest to Newest</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Sample Notification Items -->
+        <div class="notification-item">
+            <div class="notification-title">Meeting Reminder</div>
+            <div class="notification-content">A reminder for the upcoming meeting scheduled for tomorrow at 3 PM.</div>
+        </div>
+        
+        <div class="notification-item">
+            <div class="notification-title">New Update Available</div>
+            <div class="notification-content">A new update has been released. Please check the updates section for details.</div>
+        </div>
+        
+        <div class="notification-item">
+            <div class="notification-title">System Maintenance Notice</div>
+            <div class="notification-content">Scheduled maintenance will occur on Friday at midnight. Please save your work in advance.</div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.menu').classList.toggle('active');
+        }
+
+        function searchSite() {
+            const query = document.getElementById('searchBar').value.toLowerCase();
+            if (query) {
+                alert("Searching for: " + query);
+            }
+        }
+    </script>
+</body>
+</html>
