@@ -139,6 +139,15 @@
             display: none; /* Hidden by default */
         }
 
+        /* Center alignment for select category */
+        .centered-category {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
         /* Responsive styling */
         @media (max-width: 600px) {
             .navbar .links {
@@ -167,7 +176,7 @@
             <a href="#logout">Log Out</a>
         </div>
         <div class="links">
-            <a href="Frontend.html">Home</a>
+            <a href="index.html">Home</a>
             <a href="suggestion.html">Suggestion</a>
             <a href="#search">Search</a>
             <a href="profile.html">My Profile</a>
@@ -179,14 +188,16 @@
         <h3>ASTITVA Suggestion Form</h3>
 
         <form action="#" method="POST">
-            <label for="category">Select Category:</label>
-            <select id="category" name="category" onchange="toggleOtherInput()">
-                <option value="water-management">Water Management</option>
-                <option value="waste-management">Waste Management</option>
-                <option value="power-management">Power Management</option>
-                <option value="plantation">Plantation</option>
-                <option value="others">Others</option>
-            </select>
+            <div class="centered-category">
+                <label for="category">Select Category:</label>
+                <select id="category" name="category" onchange="toggleOtherInput()">
+                    <option value="water-management">Water Management</option>
+                    <option value="waste-management">Waste Management</option>
+                    <option value="power-management">Power Management</option>
+                    <option value="plantation">Plantation</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
 
             <!-- Input for Other Category (hidden by default) -->
             <input type="text" id="other-category" class="other-category-input" placeholder="Specify other category">
