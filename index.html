@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTITVA - COOPERATIVE SOCIETY</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #B0E0E6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #22577A;
+            padding: 10px;
+            position: relative;
+        }
+
+        .menu {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Dropdown menu styling */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: #22577A;
+            padding: 10px;
+            z-index: 1;
+            border-radius: 5px;
+            width: 150px;
+        }
+
+        .menu.active + .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #38A3A5;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a, .navbar button {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .website-name {
+            text-align: center;
+            font-size: 50px;
+            color: white;
+            margin: 20px 0;
+            background-color: #38A3A5;
+            padding: 10px;
+            border-radius: 12px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            padding: 40px;
+            margin: 0 auto;
+            max-width: 1000px;
+            flex: 1;
+        }
+
+        .grid-item {
+            text-align: center;
+            padding: 50px;
+            color: white;
+            font-size: 24px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .water-management { background-color: #38A3A5; }
+        .waste-management { background-color: #57CC99; }
+        .power-management { background-color: #80ED99; }
+        .plantation { background-color: #A7E9B0; }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .review-section {
+            padding: 20px;
+            text-align: left;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .review-section input, .review-section textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer {
+            background: linear-gradient(to right, #38A3A5, #57CC99, #80ED99, #A7E9B0);
+            padding: 20px;
+            text-align: right;
+            color: white;
+            margin-top: auto;
+        }
+
+        .footer p { margin: 0; font-size: 16px; }
+
+        .social-media a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-media img {
+            width: 24px;
+            height: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="menu" onclick="toggleMenu()">☰ Menu</div>
+        <div class="dropdown-content">
+            <a href="news.html">News</a>
+            <a href="receipts.html">Receipts</a>
+            <a href="notifications.html">Notifications</a>
+            <a href="#" onclick="confirmLogout()">Log Out</a>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a>
+            <a href="suggestion.html">Suggestion</a>
+            <input type="text" id="searchBar" placeholder="Search...">
+            <button onclick="searchSite()">Search</button>
+            <a href="profile.html">My Profile</a>
+        </div>
+    </div>
+
+    <div class="website-name">
+        ASTITVA
+    </div>
+
+    <div class="grid-container">
+        <a href="WaterManagement.html" class="grid-item water-management">💧 Water Management</a>
+        <a href="WasteManagement.html" class="grid-item waste-management">🗑️ Waste Management</a>
+        <a href="PowerManagement.html" class="grid-item power-management">⚡ Power Management</a>
+        <a href="Plantation.html" class="grid-item plantation">🌳 Plantation</a>
+    </div>
+
+    <div class="review-section">
+        <h3>User Review</h3>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Review" rows="4" required></textarea>
+    </div>
+
+    <div class="footer">
+        <p>Website developed by 0Matrix. Contact: email@0matrix.com</p>
+        <div class="social-media">
+            <a href="https://facebook.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const dropdown = document.querySelector('.dropdown-content');
+            dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function searchSite() {
+            const query = document.getElementById('searchBar').value.toLowerCase();
+            if (query) {
+                alert("Searching for: " + query);
+            }
+        }
+
+        function confirmLogout() {
+            if (confirm("Are you sure you want to log out?")) {
+                window.location.href = "login.html";  // Link to your login page
+            } else {
+                window.location.href = "index.html";  // Back to home if canceled
+            }
+        }
+    </script>
+</body>
+</html>
