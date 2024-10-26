@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTITVA Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #B0E0E6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background-color: #22577A;
+            padding: 20px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-container input[type="text"], .login-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .login-container .login-btn {
+            background-color: #38A3A5;
+            border: none;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-container .login-btn:hover {
+            background-color: #57CC99;
+        }
+
+        .login-container .links {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .login-container a {
+            color: #A7E9B0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Astitv Login Page</h2>
+    <form>
+        <input type="text" name="username" placeholder="Username or Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <div>
+            <input type="checkbox" name="remember"> Remember Me
+        </div>
+        <button type="submit" class="login-btn">Login</button>
+        <div class="links">
+            <a href="SignUpPage.html">Create an Account</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
