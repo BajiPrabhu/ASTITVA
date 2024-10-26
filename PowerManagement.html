@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASTITVA - Power Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3a7ca5; /* Dark shade of light blue */
+            color: white;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #22577A; /* Lapis Lazuli */
+            padding: 15px;
+        }
+
+        .navbar .menu {
+            font-size: 24px; /* Menu button size */
+            color: white;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Problem Section */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 50%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Problem List */
+        .problem-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .problem-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #57CC99; /* Emerald */
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .problem-list li:hover {
+            background-color: #80ED99; /* Light Green */
+        }
+
+        /* Doodle Icons */
+        .problem-list li::before {
+            content: "🌱"; /* Default doodle (change per problem) */
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        /* Problem Text */
+        .problem-list li span {
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="menu">☰ Menu</div> <!-- Menu Button -->
+        <div class="links">
+            <a href="index.html">Home</a> <!-- Changed from #home to index.html -->
+            <a href="suggestion.html">Suggestion</a>
+            <a href="notifications.html">Notifications</a> <!-- Added Notifications link -->
+            <a href="profile.html">My Profile</a>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <h1>Power Management Problems</h1>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search for a problem..." onkeyup="searchProblems()">
+        </div>
+
+        <!-- Problem List -->
+        <ul class="problem-list" id="problemList">
+            <li onclick="openProblem('renewable-integration')"><span>Renewable Energy Integration</span></li>
+            <li onclick="openProblem('power-grid-stability')"><span>Power Grid Stability</span></li>
+            <li onclick="openProblem('energy-efficiency')"><span>Energy Efficiency Improvements</span></li>
+            <li onclick="openProblem('battery-storage')"><span>Battery Storage Solutions</span></li>
+            <li onclick="openProblem('electricity-demand')"><span>Electricity Demand Management</span></li>
+            <li onclick="openProblem('transmission-loss')"><span>Transmission Loss Reduction</span></li>
+            <li onclick="openProblem('smart-metering')"><span>Smart Metering Challenges</span></li>
+            <li onclick="openProblem('load-balancing')"><span>Load Balancing in Power Distribution</span></li>
+            <li onclick="openProblem('carbon-emissions')"><span>Reducing Carbon Emissions</span></li>
+            <li onclick="openProblem('solar-power')"><span>Solar Power Optimization</span></li>
+            <li onclick="openProblem('nuclear-safety')"><span>Nuclear Energy Safety</span></li>
+            <li onclick="openProblem('hydropower-impact')"><span>Hydropower Environmental Impact</span></li>
+        </ul>
+    </div>
+
+    <script>
+        // Search function
+        function searchProblems() {
+            var input, filter, ul, li, span, i, txtValue;
+            input = document.getElementById('searchBar');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("problemList");
+            li = ul.getElementsByTagName('li');
+
+            for (i = 0; i < li.length; i++) {
+                span = li[i].getElementsByTagName("span")[0];
+                txtValue = span.textContent || span.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        // Redirect function to problem options page
+        function openProblem(problem) {
+            // Redirect to the options page with the problem name as a URL parameter
+            window.location.href = "problem-options.html?problem=" + encodeURIComponent(problem);
+        }
+    </script>
+
+</body>
+</html>
