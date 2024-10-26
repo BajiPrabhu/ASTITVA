@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astitv - Waste Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #3a7ca5; /* Dark shade of light blue */
+            color: white;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #22577A; /* Lapis Lazuli */
+            padding: 15px;
+        }
+
+        .navbar .menu {
+            font-size: 24px;
+            color: white;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Problem Section */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Search Bar */
+        .search-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 50%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Problem List */
+        .problem-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .problem-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #57CC99; /* Emerald */
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .problem-list li:hover {
+            background-color: #80ED99; /* Light Green */
+        }
+
+        .problem-list li span {
+            font-size: 20px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="menu">☰ Menu</div>
+        <div class="links">
+            <a href="index.html">Home</a> <!-- Updated link -->
+            <a href="suggestion.html">Suggestion</a>
+            <a href="#search">Search</a>
+            <a href="profile.html">My Profile</a>
+        </div>
+    </div>
+
+    <!-- Container -->
+    <div class="container">
+        <h1>Waste Management Problems</h1>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search for a problem..." onkeyup="searchProblems()">
+        </div>
+
+        <!-- Problem List -->
+        <ul class="problem-list" id="problemList">
+            <li onclick="openProblem('Waste Management', 'Plastic Waste Management')"><span>Plastic Waste Management</span></li>
+            <li onclick="openProblem('Waste Management', 'Landfill Overflow')"><span>Landfill Overflow</span></li>
+            <li onclick="openProblem('Waste Management', 'Recycling Challenges')"><span>Recycling Challenges</span></li>
+            <li onclick="openProblem('Waste Management', 'E-Waste Disposal')"><span>E-Waste Disposal</span></li>
+            <li onclick="openProblem('Waste Management', 'Hazardous Waste Disposal')"><span>Hazardous Waste Disposal</span></li>
+            <li onclick="openProblem('Waste Management', 'Organic Waste Management')"><span>Organic Waste Management</span></li>
+            <li onclick="openProblem('Waste Management', 'Construction Waste Management')"><span>Construction Waste Management</span></li>
+            <li onclick="openProblem('Waste Management', 'Biomedical Waste Disposal')"><span>Biomedical Waste Disposal</span></li>
+            <li onclick="openProblem('Waste Management', 'Marine Debris')"><span>Marine Debris</span></li>
+            <li onclick="openProblem('Waste Management', 'Waste Collection Efficiency')"><span>Waste Collection Efficiency</span></li>
+            <li onclick="openProblem('Waste Management', 'Single-Use Products')"><span>Single-Use Products</span></li>
+            <li onclick="openProblem('Waste Management', 'Incineration Issues')"><span>Incineration Issues</span></li>
+        </ul>
+    </div>
+
+    <script>
+        // Search function
+        function searchProblems() {
+            var input, filter, ul, li, span, i, txtValue;
+            input = document.getElementById('searchBar');
+            filter = input.value.toUpperCase();
+            ul = document.getElementById("problemList");
+            li = ul.getElementsByTagName('li');
+
+            for (i = 0; i < li.length; i++) {
+                span = li[i].getElementsByTagName("span")[0];
+                txtValue = span.textContent || span.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+
+        // Redirect function to open problem-options.html with query parameters
+        function openProblem(category, problem) {
+            const url = `problem-options.html?category=${encodeURIComponent(category)}&problem=${encodeURIComponent(problem)}`;
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
