@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Options - ASTITVA</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #B0E0E6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #22577A;
+            padding: 10px;
+            width: 100%;
+            position: relative;
+        }
+
+        .menu {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 40px;
+            left: 0;
+            background-color: #22577A;
+            padding: 10px;
+            z-index: 1;
+            border-radius: 5px;
+            width: 150px;
+        }
+
+        .menu.active + .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #38A3A5;
+        }
+
+        .navbar .links {
+            display: flex;
+            gap: 50px;
+            justify-content: flex-end;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        /* Problem Options Section */
+        .problem-options {
+            max-width: 600px;
+            width: 90%;
+            padding: 20px;
+            background-color: #57CC99;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .problem-options h2 {
+            color: #22577A;
+            margin-bottom: 20px;
+        }
+
+        .problem-options button {
+            background-color: #22577A;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .problem-options button:hover {
+            background-color: #38A3A5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <div class="menu" onclick="toggleMenu()">☰ Menu</div>
+        <div class="dropdown-content">
+            <a href="notifications.html">Notifications</a>
+            <a href="#logout">Log Out</a>
+        </div>
+        <div class="links">
+            <a href="index.html">Home</a> <!-- Changed from Frontend.html to index.html -->
+            <a href="suggestion.html">Suggestion</a>
+            <a href="#search">Search</a>
+            <a href="profile.html">My Profile</a>
+        </div>
+    </div>
+
+    <!-- Problem Options Section -->
+    <div class="problem-options">
+        <h2 id="problem-title">Problem Options</h2>
+        <p id="problem-description">Select an option for your chosen problem.</p>
+
+        <button onclick="navigateTo('join')">Join</button>
+        <button onclick="navigateTo('create')">Create</button>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.querySelector('.menu').classList.toggle('active');
+        }
+
+        // Function to retrieve URL parameters
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                category: params.get('category') || 'Unknown Category',
+                problem: params.get('problem') || 'Unknown Problem'
+            };
+        }
+
+        // Set problem title and description based on URL parameters
+        function loadProblemDetails() {
+            const { category, problem } = getQueryParams();
+            document.getElementById('problem-title').innerText = `${problem} - ${category}`;
+            document.getElementById('problem-description').innerText = `Explore options for "${problem}" in "${category}".`;
+        }
+
+        // Function to handle navigation based on button clicked
+        function navigateTo(option) {
+            const { category, problem } = getQueryParams();
+            window.location.href = `${option}.html?category=${category}&problem=${problem}`;
+        }
+
+        // Initialize the page with problem details
+        loadProblemDetails();
+    </script>
+</body>
+</html>
